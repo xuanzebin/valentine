@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const pkPluginRE = /^(@valentine\/)(cli-)?plugin-/
+const pkPluginRE = /^(@o2team\/)valentine-plugin-/
 
 exports.pkPluginRE = pkPluginRE
 

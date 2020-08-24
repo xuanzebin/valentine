@@ -1,5 +1,5 @@
 {
-  "name": "@valentine/plugin-confession",
+  "name": "@o2team/valentine-plugin-confession",
   "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
