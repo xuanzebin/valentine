@@ -1,0 +1,19 @@
+{
+  "name": "valentine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "np": "node ./scripts/np.js"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  }
+}

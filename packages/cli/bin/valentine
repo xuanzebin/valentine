@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+const {
+  injectCommand,
+  getAllCommands,
+  commandComplete
+} = require('../api/commandAPI.js')
+
+console.log('-------- 情人节快乐 --------')
+
+// 获取所有的命令（预设+插件）
+getAllCommands().forEach(cwd => {
+  // 插件注册命令行
+  cwd(injectCommand)
+})
+
+// 命令行注册完成
+commandComplete()
