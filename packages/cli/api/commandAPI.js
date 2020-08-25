@@ -2,15 +2,19 @@ const fs = require('fs')
 const path = require('path')
 const program = require('commander')
 
+const OperateHooks = require('./operateHooks')
 const packageConfig = require('../package.json')
 
 let status = 'pending'
 let cliConfig = { name: '小屁', hobby: '减肥' }
 const commandNames = ['-V', '--version', '-h', '--help']
+const operateHooks = new OperateHooks()
 
 program
   .usage('<command> [options]')
   .version(packageConfig.version)
+
+module.exports.operateHooks = operateHooks
 
 // 为每个命令的注入函数提供所需的参数，如program等对象
 module.exports.injectCommand = (cmd) => {
@@ -22,6 +26,7 @@ module.exports.injectCommand = (cmd) => {
 // 注册完所有命令后，检测当前命令是否存在，并更改脚手架状态
 module.exports.commandComplete = function() {
   commandValidate()
+  operateHooks.bindHooks()
   parseArgv()
   status = 'done'
 }

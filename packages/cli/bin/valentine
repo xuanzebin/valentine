@@ -2,7 +2,8 @@
 const {
   injectCommand,
   getAllCommands,
-  commandComplete
+  commandComplete,
+  operateHooks
 } = require('../api/commandAPI.js')
 
 console.log('-------- 情人节快乐 --------')
@@ -10,7 +11,7 @@ console.log('-------- 情人节快乐 --------')
 // 获取所有的命令（预设+插件）
 getAllCommands().forEach(cwd => {
   // 插件注册命令行
-  cwd(injectCommand)
+  cwd({ injectCommand, operateHooks })
 })
 
 // 命令行注册完成
